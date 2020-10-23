@@ -3,7 +3,7 @@
 ![Publish Packages](https://github.com/tommasodotNET/WebAppServiceLibrary/workflows/Publish%20Packages/badge.svg)
 [![package](https://img.shields.io/nuget/vpre/WebAppServiceLibrary.svg?label=WebAppServiceLibrary&style=flat-square)](https://www.nuget.org/packages/WebAppServiceLibrary)
 
-This class library is meant to ease configuration and registration of services, database contexts and option files in Asp .NET Core 3.1.
+This class library is meant to ease configuration and registration of services, database contexts and option files in Asp .NET Core 3.1 projects.
 
 ## Installation and configuration
 
@@ -16,7 +16,7 @@ dotnet add package WebAppServiceLibrary
 or the package manager
 
 ```
-Install-Package WebAppServiceLibrary -Version 1.0.0
+Install-Package WebAppServiceLibrary
 ```
 
 Register all the configured services adding this line in the startup:
