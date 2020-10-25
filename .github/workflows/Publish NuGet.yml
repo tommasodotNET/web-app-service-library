@@ -25,6 +25,6 @@ jobs:
     - name: Publish WebAppServiceLibrary
       uses: brandedoutcast/publish-nuget@v2.5.2
       with:
-          PROJECT_FILE_PATH: WebAppServiceLibrary/WebAppServiceLibrary.csproj
+          PROJECT_FILE_PATH: src/WebAppServiceLibrary/WebAppServiceLibrary.csproj
           VERSION_STATIC: 1.0.0
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
