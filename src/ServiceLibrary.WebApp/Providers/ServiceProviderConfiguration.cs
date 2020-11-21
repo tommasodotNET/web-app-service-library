@@ -9,6 +9,7 @@ namespace ServiceLibrary.WebApp.Providers
 {
    public static class ServiceProviderConfiguration
    {
+      //comment
       public static IServiceCollection ConfigureService(this IServiceCollection services, IConfiguration configuration)
       {
          Console.WriteLine("Configuring services...");
