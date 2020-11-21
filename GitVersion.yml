@@ -1,4 +1,4 @@
-next-version: 1.0
+next-version: 1.0.0
 mode: ContinuousDeployment
 continuous-delivery-fallback-tag: ''
 major-version-bump-message: '\+semver:\s?(breaking|major)'
@@ -9,8 +9,8 @@ branches:
   master:
     mode: ContinuousDeployment
     tag:
-    increment: Major
-    prevent-increment-of-merged-branch-version: false
+    increment: Minor
+    prevent-increment-of-merged-branch-version: true
     track-merge-target: false
     is-release-branch: true
   feature:
@@ -20,6 +20,7 @@ branches:
     increment: Patch
     prevent-increment-of-merged-branch-version: false
     track-merge-target: false
+    tracks-release-branches: false
     is-release-branch: false
   develop:
     regex: ^dev(elop)?(ment)?$
@@ -27,7 +28,8 @@ branches:
     tag: 
     increment: Minor
     prevent-increment-of-merged-branch-version: false
-    track-merge-target: true
+    track-merge-target: false
+    tracks-release-branches: false
     is-release-branch: false
 ignore:
   sha: []
