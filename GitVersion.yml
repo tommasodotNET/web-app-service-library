@@ -1,5 +1,9 @@
 mode: ContinuousDeployment
 continuous-delivery-fallback-tag: ''
+major-version-bump-message: '\+semver:\s?(breaking|major)'
+minor-version-bump-message: '\+semver:\s?(feature|minor)'
+patch-version-bump-message: '\+semver:\s?(fix|patch)'
+commit-message-incrementing: Enabled
 branches: {}
 ignore:
   sha: []
