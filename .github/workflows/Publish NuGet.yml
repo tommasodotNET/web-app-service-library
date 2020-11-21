@@ -11,10 +11,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Setup .NET Core
+    - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.101
+        dotnet-version: 5.0.100
 
     - name: Install dependencies
       run: dotnet restore ./src
@@ -22,9 +22,8 @@ jobs:
     - name: Build
       run: dotnet build ./src --configuration Release --no-restore
 
-    - name: Publish WebAppServiceLibrary
-      uses: brandedoutcast/publish-nuget@v2.5.2
-      with:
-          PROJECT_FILE_PATH: src/WebAppServiceLibrary/WebAppServiceLibrary.csproj
-          VERSION_STATIC: 1.0.0
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+    - name: Pack with dotnet
+      run: dotnet pack ./src/ServiceLibrary.WebApp/ServiceLibrary.WebApp.csproj -p:PackageVersion=1.0.0 --output nuget-packages --configuration Release
+
+    - name: Push with dotnet
+      run: dotnet nuget push nuget-packages/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
