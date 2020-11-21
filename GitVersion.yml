@@ -1,3 +1,4 @@
+next-version: 1.0
 mode: ContinuousDeployment
 continuous-delivery-fallback-tag: ''
 major-version-bump-message: '\+semver:\s?(breaking|major)'
