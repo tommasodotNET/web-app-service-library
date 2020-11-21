@@ -4,7 +4,25 @@ major-version-bump-message: '\+semver:\s?(breaking|major)'
 minor-version-bump-message: '\+semver:\s?(feature|minor)'
 patch-version-bump-message: '\+semver:\s?(fix|patch)'
 commit-message-incrementing: Enabled
-branches: {}
+branches: 
+  master:
+    mode: ContinuousDeployment
+    tag:
+    increment: Patch
+    prevent-increment-of-merged-branch-version: false
+    track-merge-target: false
+  features?[/-]:
+      mode: ContinuousDeployment
+      tag: useBranchName
+      increment: Patch
+      prevent-increment-of-merged-branch-version: false
+      track-merge-target: false
+  dev(elop)?(ment)?$:
+      mode: ContinuousDeployment
+      tag: 
+      increment: Minor
+      prevent-increment-of-merged-branch-version: false
+      track-merge-target: true
 ignore:
   sha: []
 merge-message-formats: {}
