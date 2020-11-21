@@ -3,7 +3,7 @@
 ![Publish Packages](https://github.com/tommasodotNET/WebAppServiceLibrary/workflows/Publish%20Packages/badge.svg)
 [![package](https://img.shields.io/nuget/vpre/ServiceLibrary.WebApp.svg?label=ServiceLibrary.WebApp&style=flat-square)](https://www.nuget.org/packages/ServiceLibrary.WebApp)
 
-This class library is meant to ease configuration and registration of services, database contexts and option files in .NET Core 5.0 web app projects.
+This class library is meant to ease configuration and registration of services, database contexts and option files in .NET 5.0 web app projects.
 
 ## Installation and configuration
 
