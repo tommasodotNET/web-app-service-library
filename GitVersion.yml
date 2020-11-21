@@ -1,5 +1,6 @@
 mode: ContinuousDeployment
 continuous-delivery-fallback-tag: ''
+next-version: 1.0.1
 major-version-bump-message: '\+semver:\s?(breaking|major)'
 minor-version-bump-message: '\+semver:\s?(feature|minor)'
 patch-version-bump-message: '\+semver:\s?(fix|patch)'
