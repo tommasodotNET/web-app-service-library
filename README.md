@@ -16,7 +16,7 @@ dotnet add package ServiceLibrary.WebApp
 or the package manager
 
 ```
-Install-Package WebAppServiceLibrary
+Install-Package ServiceLibrary.WebApp
 ```
 
 Register all the configured services adding this line in the startup:
