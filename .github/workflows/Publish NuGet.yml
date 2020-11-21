@@ -22,7 +22,7 @@ jobs:
     - name: Use GitVersion
       id: gitversion # step id used as reference for output values
       uses: gittools/actions/gitversion/execute@v0.9
-      
+
     - run: |
         echo "NuGetVersionV2: ${{ steps.gitversion.outputs.nuGetVersionV2 }}"
         echo "NuGetPreReleaseTagV2: ${{ steps.gitversion.outputs.CommitsSinceVersionSourcePadded }}"
@@ -39,7 +39,7 @@ jobs:
       run: dotnet build ./src --configuration Release --no-restore
 
     - name: Pack with dotnet
-      run: dotnet pack ./src/ServiceLibrary.WebApp/ServiceLibrary.WebApp.csproj -p:PackageVersion=1.0.0 --output nuget-packages --configuration Release
+      run: dotnet pack ./src/ServiceLibrary.WebApp/ServiceLibrary.WebApp.csproj --output nuget-packages --configuration Release -p:PackageVersion=${{ steps.gitversion.outputs.nuGetVersionV2 }}-${{ steps.gitversion.outputs.CommitsSinceVersionSourcePadded }}
 
     - name: Push with dotnet
       run: dotnet nuget push nuget-packages/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
