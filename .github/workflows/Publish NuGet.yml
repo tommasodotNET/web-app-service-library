@@ -1,8 +1,8 @@
 name: Publish Packages
 
 on:
-  push:
-    branches: [ master ]
+  release:
+    types: [published]
 
 jobs:
   build:
@@ -23,7 +23,7 @@ jobs:
       run: dotnet build ./src --configuration Release --no-restore
 
     - name: Pack with dotnet
-      run: dotnet pack ./src/ServiceLibrary.WebApp/ServiceLibrary.WebApp.csproj --output nuget-packages --configuration Release -p:PackageVersion=2.0.1
+      run: dotnet pack ./src/ServiceLibrary.WebApp/ServiceLibrary.WebApp.csproj --output nuget-packages --configuration Release -p:PackageVersion=${{ github.event.release.tag_name }}
 
     - name: Push with dotnet
       run: dotnet nuget push nuget-packages/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
